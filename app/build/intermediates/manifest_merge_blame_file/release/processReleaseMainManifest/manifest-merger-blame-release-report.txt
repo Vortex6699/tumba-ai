@@ -1,0 +1,173 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.tumba.ai"
+4    android:versionCode="5"
+5    android:versionName="1.2.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:6:22-76
+13
+14    <permission
+14-->[androidx.core:core:1.13.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\85cb0ad62b3340ad1c03d0c6717be402\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+15        android:name="com.tumba.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+15-->[androidx.core:core:1.13.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\85cb0ad62b3340ad1c03d0c6717be402\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+16        android:protectionLevel="signature" />
+16-->[androidx.core:core:1.13.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\85cb0ad62b3340ad1c03d0c6717be402\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+17
+18    <uses-permission android:name="com.tumba.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+18-->[androidx.core:core:1.13.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\85cb0ad62b3340ad1c03d0c6717be402\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.13.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\85cb0ad62b3340ad1c03d0c6717be402\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+19
+20    <application
+20-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:8:5-43:19
+21        android:name="com.tumba.ai.TumbaApplication"
+21-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:9:9-41
+22        android:allowBackup="true"
+22-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:10:9-35
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.13.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\85cb0ad62b3340ad1c03d0c6717be402\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+24        android:dataExtractionRules="@xml/data_extraction_rules"
+24-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:11:9-65
+25        android:enableOnBackInvokedCallback="true"
+25-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:19:9-51
+26        android:extractNativeLibs="false"
+27        android:fullBackupContent="@xml/backup_rules"
+27-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:12:9-54
+28        android:icon="@mipmap/ic_launcher"
+28-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:13:9-43
+29        android:label="@string/app_name"
+29-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:14:9-41
+30        android:localeConfig="@xml/locales_config"
+30-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:15:9-51
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:16:9-54
+32        android:supportsRtl="true"
+32-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:17:9-35
+33        android:theme="@style/Theme.Tumba" >
+33-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:18:9-43
+34        <activity
+34-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:22:9-32:20
+35            android:name="com.tumba.ai.MainActivity"
+35-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:23:13-41
+36            android:exported="true"
+36-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:24:13-36
+37            android:launchMode="singleTop"
+37-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:25:13-43
+38            android:theme="@style/Theme.Tumba"
+38-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:26:13-47
+39            android:windowSoftInputMode="adjustResize" >
+39-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:27:13-55
+40            <intent-filter>
+40-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:28:13-31:29
+41                <action android:name="android.intent.action.MAIN" />
+41-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:29:17-69
+41-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:29:25-66
+42
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:30:17-77
+43-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:30:27-74
+44            </intent-filter>
+45        </activity>
+46
+47        <!-- Persists the in-app language choice on API < 33 as well. -->
+48        <service
+48-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:35:9-42:19
+49            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+49-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:36:13-82
+50            android:enabled="false"
+50-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:37:13-36
+51            android:exported="false" >
+51-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:38:13-37
+52            <meta-data
+52-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:39:13-41:40
+53                android:name="autoStoreLocales"
+53-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:40:17-48
+54                android:value="true" />
+54-->C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\AndroidManifest.xml:41:17-37
+55        </service>
+56
+57        <provider
+57-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Acer\.gradle\caches\8.11.1\transforms\c59c397a3988f591fffff6a52a81caf4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:24:9-32:20
+58            android:name="androidx.startup.InitializationProvider"
+58-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Acer\.gradle\caches\8.11.1\transforms\c59c397a3988f591fffff6a52a81caf4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:25:13-67
+59            android:authorities="com.tumba.ai.androidx-startup"
+59-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Acer\.gradle\caches\8.11.1\transforms\c59c397a3988f591fffff6a52a81caf4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:26:13-68
+60            android:exported="false" >
+60-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Acer\.gradle\caches\8.11.1\transforms\c59c397a3988f591fffff6a52a81caf4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:27:13-37
+61            <meta-data
+61-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Acer\.gradle\caches\8.11.1\transforms\c59c397a3988f591fffff6a52a81caf4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+62-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Acer\.gradle\caches\8.11.1\transforms\c59c397a3988f591fffff6a52a81caf4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+63                android:value="androidx.startup" />
+63-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Acer\.gradle\caches\8.11.1\transforms\c59c397a3988f591fffff6a52a81caf4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+64            <meta-data
+64-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Acer\.gradle\caches\8.11.1\transforms\7a5e55ac5562ac488a6fd35b32960608\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+65-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Acer\.gradle\caches\8.11.1\transforms\7a5e55ac5562ac488a6fd35b32960608\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+66                android:value="androidx.startup" />
+66-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Acer\.gradle\caches\8.11.1\transforms\7a5e55ac5562ac488a6fd35b32960608\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+68-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+69                android:value="androidx.startup" />
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+70        </provider>
+71
+72        <service
+72-->[androidx.room:room-runtime:2.6.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\6d20408b2ba907a83add238c7d27c661\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+73            android:name="androidx.room.MultiInstanceInvalidationService"
+73-->[androidx.room:room-runtime:2.6.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\6d20408b2ba907a83add238c7d27c661\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+74            android:directBootAware="true"
+74-->[androidx.room:room-runtime:2.6.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\6d20408b2ba907a83add238c7d27c661\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+75            android:exported="false" />
+75-->[androidx.room:room-runtime:2.6.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\6d20408b2ba907a83add238c7d27c661\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+76
+77        <receiver
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+78            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+79            android:directBootAware="false"
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+80            android:enabled="true"
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+81            android:exported="true"
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+82            android:permission="android.permission.DUMP" >
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+83            <intent-filter>
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+84                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+85            </intent-filter>
+86            <intent-filter>
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+87                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+88            </intent-filter>
+89            <intent-filter>
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+90                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+91            </intent-filter>
+92            <intent-filter>
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+93                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Acer\.gradle\caches\8.11.1\transforms\2fd0e6be82b8440eb28e447d41df06d7\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+94            </intent-filter>
+95        </receiver>
+96    </application>
+97
+98</manifest>

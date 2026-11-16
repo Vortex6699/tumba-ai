@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="tumba_accent">#B0B0B0</color>
+    <color name="tumba_background">#101010</color>
+    <color name="tumba_surface">#191919</color>
+    <style name="Theme.Tumba" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/tumba_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" ns1:targetApi="27">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorAccent">@color/tumba_accent</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:fontFamily">sans</item>
+    </style>
+</resources>

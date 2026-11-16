@@ -1,0 +1,62 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.tumba.ai.app-mergeDebugResources-66:/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Acer\\Documents\\tumba\\tumba-ai\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "12",
+                        "endColumns": "12",
+                        "endOffsets": "815"
+                    },
+                    "to": {
+                        "startLines": "12",
+                        "startColumns": "4",
+                        "startOffsets": "878",
+                        "endLines": "22",
+                        "endColumns": "12",
+                        "endOffsets": "1589"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Acer\\Documents\\tumba\\tumba-ai\\app\\src\\main\\res\\values-night\\colors.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "154,55,106",
+                        "endColumns": "46,50,47",
+                        "endOffsets": "196,101,149"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "100,147,198",
+                        "endColumns": "46,50,47",
+                        "endOffsets": "142,193,241"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Acer\\.gradle\\caches\\8.11.1\\transforms\\94d3f644bd9ce173b936437a830c3cf2\\transformed\\appcompat-1.7.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9,10,11,23",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "246,316,400,484,580,682,784,1594",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "311,395,479,575,677,779,873,1678"
+                    }
+                }
+            ]
+        }
+    ]
+}

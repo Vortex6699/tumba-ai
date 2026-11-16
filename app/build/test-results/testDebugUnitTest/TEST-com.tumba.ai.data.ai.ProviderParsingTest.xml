@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tumba.ai.data.ai.ProviderParsingTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-13T11:25:31" hostname="DESKTOP-F39TBTS" time="0.061">
+  <properties/>
+  <testcase name="maps404ToModelNotFound" classname="com.tumba.ai.data.ai.ProviderParsingTest" time="0.013"/>
+  <testcase name="extractsGeminiStyleErrorMessage" classname="com.tumba.ai.data.ai.ProviderParsingTest" time="0.041"/>
+  <testcase name="extractsOpenAiStyleErrorMessage" classname="com.tumba.ai.data.ai.ProviderParsingTest" time="0.001"/>
+  <testcase name="dropsCompletelyEmptyMessages" classname="com.tumba.ai.data.ai.ProviderParsingTest" time="0.002"/>
+  <testcase name="toleratesNonJsonBodies" classname="com.tumba.ai.data.ai.ProviderParsingTest" time="0.003"/>
+  <testcase name="mergesConsecutiveMessagesWithTheSameRole" classname="com.tumba.ai.data.ai.ProviderParsingTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

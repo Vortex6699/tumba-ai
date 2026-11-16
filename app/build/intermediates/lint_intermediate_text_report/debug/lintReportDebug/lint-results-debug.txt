@@ -1,0 +1,293 @@
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:96: Warning: A newer version of androidx.core:core-ktx than 1.13.1 is available: 1.19.1 [GradleDependency]
+    implementation("androidx.core:core-ktx:1.13.1")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:97: Warning: A newer version of androidx.activity:activity-compose than 1.9.3 is available: 1.13.0 [GradleDependency]
+    implementation("androidx.activity:activity-compose:1.9.3")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:98: Warning: A newer version of androidx.appcompat:appcompat than 1.7.0 is available: 1.8.0 [GradleDependency]
+    implementation("androidx.appcompat:appcompat:1.7.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:107: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.8.7 is available: 2.11.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:108: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.8.7 is available: 2.11.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:109: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.8.7 is available: 2.11.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:110: Warning: A newer version of androidx.navigation:navigation-compose than 2.8.4 is available: 2.10.2 [GradleDependency]
+    implementation("androidx.navigation:navigation-compose:2.8.4")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:114: Warning: A newer version of androidx.hilt:hilt-navigation-compose than 1.2.0 is available: 1.4.0 [GradleDependency]
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:116: Warning: A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.5 [GradleDependency]
+    implementation("androidx.room:room-runtime:2.6.1")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:117: Warning: A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.5 [GradleDependency]
+    implementation("androidx.room:room-ktx:2.6.1")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:118: Warning: A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.5 [GradleDependency]
+    ksp("androidx.room:room-compiler:2.6.1")
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\build.gradle.kts:120: Warning: A newer version of androidx.datastore:datastore-preferences than 1.1.1 is available: 1.3.0 [GradleDependency]
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:112: Warning: Formatting %d followed by words ("messages"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="history_message_count">%1$d messages</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:247: Warning: Formatting %d followed by words ("messages"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="settings_context_value">%1$d messages</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:270: Warning: Formatting %d followed by words ("conversations"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="settings_stats">%1$d conversations · %2$d messages</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "PluralsCandidate":
+   This lint check looks for potential errors in internationalization where
+   you have translated a message which involves a quantity and it looks like
+   other parts of the string may need grammatical changes.
+
+   For example, rather than something like this:
+     <string name="try_again">Try again in %d seconds.</string>
+   you should be using a plural:
+      <plurals name="try_again">
+           <item quantity="one">Try again in %d second</item>
+           <item quantity="other">Try again in %d seconds</item>
+       </plurals>
+   This will ensure that in other languages the right set of translations are
+   provided for the different quantity classes.
+
+   (This check depends on some heuristics, so it may not accurately determine
+   whether a string really should be a quantity. You can use tools:ignore to
+   filter out false positives.
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\colors.xml:4: Warning: The resource R.color.tumba_surface appears to be unused [UnusedResources]
+    <color name="tumba_surface">#FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:4: Warning: The resource R.string.app_wordmark appears to be unused [UnusedResources]
+    <string name="app_wordmark">TUMBA</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:8: Warning: The resource R.string.nav_chat appears to be unused [UnusedResources]
+    <string name="nav_chat">Chat</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:9: Warning: The resource R.string.nav_history appears to be unused [UnusedResources]
+    <string name="nav_history">History</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:10: Warning: The resource R.string.nav_models appears to be unused [UnusedResources]
+    <string name="nav_models">Models</string>
+            ~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:20: Warning: The resource R.string.action_add appears to be unused [UnusedResources]
+    <string name="action_add">Add</string>
+            ~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:21: Warning: The resource R.string.action_ok appears to be unused [UnusedResources]
+    <string name="action_ok">OK</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:23: Warning: The resource R.string.action_remove appears to be unused [UnusedResources]
+    <string name="action_remove">Remove</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:25: Warning: The resource R.string.action_copy appears to be unused [UnusedResources]
+    <string name="action_copy">Copy</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:27: Warning: The resource R.string.action_export appears to be unused [UnusedResources]
+    <string name="action_export">Export</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:28: Warning: The resource R.string.label_loading appears to be unused [UnusedResources]
+    <string name="label_loading">Loading</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:29: Warning: The resource R.string.label_you appears to be unused [UnusedResources]
+    <string name="label_you">You</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:30: Warning: The resource R.string.label_tumba appears to be unused [UnusedResources]
+    <string name="label_tumba">TUMBA</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:31: Warning: The resource R.string.label_error appears to be unused [UnusedResources]
+    <string name="label_error">Error</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:36: Warning: The resource R.string.chat_untitled appears to be unused [UnusedResources]
+    <string name="chat_untitled">New conversation</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:44: Warning: The resource R.string.chat_copy_message appears to be unused [UnusedResources]
+    <string name="chat_copy_message">Copy message</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:58: Warning: The resource R.string.chat_attachment_unsupported appears to be unused [UnusedResources]
+    <string name="chat_attachment_unsupported">This model cannot read images. Pick a vision-capable model first.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:67: Warning: The resource R.string.chat_scroll_bottom appears to be unused [UnusedResources]
+    <string name="chat_scroll_bottom">Jump to latest</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:70: Warning: The resource R.string.chat_actions appears to be unused [UnusedResources]
+    <string name="chat_actions">Message actions</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:85: Warning: The resource R.string.error_local_engine_body appears to be unused [UnusedResources]
+    <string name="error_local_engine_body">The bundled engine needs a 64-bit ARM or x86 device. On 32-bit devices the app and cloud models still work, but on-device inference does not.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:88: Warning: The resource R.string.error_cancelled appears to be unused [UnusedResources]
+    <string name="error_cancelled">Generation cancelled.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:91: Warning: The resource R.string.error_provider_detail appears to be unused [UnusedResources]
+    <string name="error_provider_detail">Details: %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:95: Warning: The resource R.string.error_export_failed appears to be unused [UnusedResources]
+    <string name="error_export_failed">The export could not be written.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:99: Warning: The resource R.string.history_title appears to be unused [UnusedResources]
+    <string name="history_title">History</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:100: Warning: The resource R.string.history_subtitle appears to be unused [UnusedResources]
+    <string name="history_subtitle">Stored locally. Always yours.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:112: Warning: The resource R.string.history_message_count appears to be unused [UnusedResources]
+    <string name="history_message_count">%1$d messages</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:113: Warning: The resource R.plurals.history_messages_count appears to be unused [UnusedResources]
+    <plurals name="history_messages_count">
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:121: Warning: The resource R.string.history_start_new appears to be unused [UnusedResources]
+    <string name="history_start_new">Start chatting</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:123: Warning: The resource R.string.history_search_results appears to be unused [UnusedResources]
+    <string name="history_search_results">Results</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:133: Warning: The resource R.string.models_select appears to be unused [UnusedResources]
+    <string name="models_select">Select</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:137: Warning: The resource R.string.models_test_failed appears to be unused [UnusedResources]
+    <string name="models_test_failed">Connection failed</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:139: Warning: The resource R.string.models_syncing appears to be unused [UnusedResources]
+    <string name="models_syncing">Syncing models…</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:146: Warning: The resource R.string.models_key_required appears to be unused [UnusedResources]
+    <string name="models_key_required">API key required</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:151: Warning: The resource R.string.models_custom_title appears to be unused [UnusedResources]
+    <string name="models_custom_title">Custom endpoint</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:163: Warning: The resource R.string.models_capabilities appears to be unused [UnusedResources]
+    <string name="models_capabilities">Capabilities</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:167: Warning: The resource R.string.models_info appears to be unused [UnusedResources]
+    <string name="models_info">Model information</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:168: Warning: The resource R.string.models_builtin appears to be unused [UnusedResources]
+    <string name="models_builtin">Built-in</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:170: Warning: The resource R.string.models_local appears to be unused [UnusedResources]
+    <string name="models_local">Local</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:171: Warning: The resource R.string.models_provider_requires_key appears to be unused [UnusedResources]
+    <string name="models_provider_requires_key">Key required</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:172: Warning: The resource R.string.models_provider_ready appears to be unused [UnusedResources]
+    <string name="models_provider_ready">Ready</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:203: Warning: The resource R.string.models_select_local appears to be unused [UnusedResources]
+    <string name="models_select_local">Use on device</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:216: Warning: The resource R.string.models_import_requires_name appears to be unused [UnusedResources]
+    <string name="models_import_requires_name">Give the model a name.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:218: Warning: The resource R.string.models_custom_name_exists appears to be unused [UnusedResources]
+    <string name="models_custom_name_exists">A custom API with this name already exists.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:226: Warning: The resource R.string.models_active_selected appears to be unused [UnusedResources]
+    <string name="models_active_selected">%1$s is now active</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:274: Warning: The resource R.string.settings_privacy appears to be unused [UnusedResources]
+    <string name="settings_privacy">Privacy</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:283: Warning: The resource R.string.settings_open_local appears to be unused [UnusedResources]
+    <string name="settings_open_local">Manage local models</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:289: Warning: The resource R.string.md_code_label appears to be unused [UnusedResources]
+    <string name="md_code_label">Code</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:292: Warning: The resource R.string.cd_send appears to be unused [UnusedResources]
+    <string name="cd_send">Send</string>
+            ~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:293: Warning: The resource R.string.cd_stop appears to be unused [UnusedResources]
+    <string name="cd_stop">Stop</string>
+            ~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:294: Warning: The resource R.string.cd_attach appears to be unused [UnusedResources]
+    <string name="cd_attach">Attach</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:298: Warning: The resource R.string.cd_close appears to be unused [UnusedResources]
+    <string name="cd_close">Close</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:299: Warning: The resource R.string.cd_model appears to be unused [UnusedResources]
+    <string name="cd_model">Active model</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\values\strings.xml:300: Warning: The resource R.string.cd_selected appears to be unused [UnusedResources]
+    <string name="cd_selected">Selected</string>
+            ~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\java\com\tumba\ai\data\repository\LocalModelRepositoryImpl.kt:66: Warning: Consider also using StorageManager#getAllocatableBytes and allocateBytes which will consider clearable cached data [UsableSpace]
+            if (declaredSize != null && modelsDir.usableSpace < declaredSize + SAFETY_MARGIN) {
+                                                  ~~~~~~~~~~~
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\java\com\tumba\ai\data\repository\LocalModelRepositoryImpl.kt:142: Warning: Consider also using StorageManager#getAllocatableBytes and allocateBytes which will consider clearable cached data [UsableSpace]
+        if (modelsDir.usableSpace < (spec.sizeBytes - offset).coerceAtLeast(0L) + SAFETY_MARGIN) {
+                      ~~~~~~~~~~~
+
+   Explanation for issues of type "UsableSpace":
+   When you need to allocate disk space for large files, consider using the
+   new allocateBytes(FileDescriptor, long) API, which will automatically clear
+   cached files belonging to other apps (as needed) to meet your request.
+
+   When deciding if the device has enough disk space to hold your new data,
+   call getAllocatableBytes(UUID) instead of using getUsableSpace(), since the
+   former will consider any cached data that the system is willing to clear on
+   your behalf.
+
+   Note that these methods require API level 26. If your app is running on
+   older devices, you will probably need to use both APIs, conditionally
+   switching on Build.VERSION.SDK_INT. Lint only looks in the same compilation
+   unit to see if you are already using both APIs, so if it warns even though
+   you are already using the new API, consider moving the calls to the same
+   file or suppressing the warning.
+
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\mipmap-anydpi\ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+C:\Users\Acer\Documents\tumba\tumba-ai\app\src\main\res\mipmap-anydpi\ic_launcher_round.xml:2: Warning: The application adaptive roundIcon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+0 errors, 72 warnings

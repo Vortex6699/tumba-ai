@@ -1,0 +1,19 @@
+*.iml
+.gradle
+.kotlin
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+keystore.properties
+*.jks
+/app/release
+/app/debug
+
+# llama.cpp sources are fetched by tools/build-native.* (pinned tag), not committed.
+/app/src/main/cpp/llama.cpp
+/build/native

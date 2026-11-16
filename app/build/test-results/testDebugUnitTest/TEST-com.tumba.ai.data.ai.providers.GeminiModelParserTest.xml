@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tumba.ai.data.ai.providers.GeminiModelParserTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-13T11:25:31" hostname="DESKTOP-F39TBTS" time="0.013">
+  <properties/>
+  <testcase name="skipsModelsWithoutGenerateContent" classname="com.tumba.ai.data.ai.providers.GeminiModelParserTest" time="0.005"/>
+  <testcase name="filtersEmbeddingsImagesAndLiveModels" classname="com.tumba.ai.data.ai.providers.GeminiModelParserTest" time="0.007"/>
+  <testcase name="keepsChatModelsAndReadsMetadata" classname="com.tumba.ai.data.ai.providers.GeminiModelParserTest" time="0.001"/>
+  <testcase name="handlesMalformedOrEmptyResponses" classname="com.tumba.ai.data.ai.providers.GeminiModelParserTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

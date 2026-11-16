@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- API keys are wrapped by a non-exportable Keystore key and must never leave the device. -->
+    <exclude domain="sharedpref" path="tumba_secrets.xml" />
+    <exclude domain="file" path="models/" />
+    <exclude domain="file" path="attachments/" />
+</full-backup-content>

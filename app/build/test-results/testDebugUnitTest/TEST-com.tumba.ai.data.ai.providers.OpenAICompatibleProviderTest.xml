@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tumba.ai.data.ai.providers.OpenAICompatibleProviderTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-13T11:25:31" hostname="DESKTOP-F39TBTS" time="0.642">
+  <properties/>
+  <testcase name="mapsUnauthorizedResponseToInvalidKey" classname="com.tumba.ai.data.ai.providers.OpenAICompatibleProviderTest" time="0.576"/>
+  <testcase name="streamsSseDeltasAndUsage" classname="com.tumba.ai.data.ai.providers.OpenAICompatibleProviderTest" time="0.033"/>
+  <testcase name="rejectsImagesForTextOnlyModels" classname="com.tumba.ai.data.ai.providers.OpenAICompatibleProviderTest" time="0.01"/>
+  <testcase name="sendsImagesOnlyForVisionModels" classname="com.tumba.ai.data.ai.providers.OpenAICompatibleProviderTest" time="0.022"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

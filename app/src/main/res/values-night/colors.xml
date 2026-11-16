@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tumba_background">#101010</color>
+    <color name="tumba_surface">#191919</color>
+    <color name="tumba_accent">#B0B0B0</color>
+</resources>

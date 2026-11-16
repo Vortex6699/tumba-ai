@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tumba_background">#FAFAF8</color>
+    <color name="tumba_surface">#FFFFFF</color>
+    <color name="tumba_accent">#3A3A3A</color>
+    <color name="ic_launcher_background">#101010</color>
+</resources>
