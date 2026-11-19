@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tumba.ai.ui.markdown.MarkdownParserTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-19T19:02:45" hostname="DESKTOP-F39TBTS" time="0.006">
+<testsuite name="com.tumba.ai.ui.markdown.MarkdownParserTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-19T22:10:41" hostname="DESKTOP-F39TBTS" time="0.006">
   <properties/>
-  <testcase name="parsesHeadingsParagraphsAndCodeFences" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.004"/>
-  <testcase name="leavesUnclosedMarkersAsPlainText" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.0"/>
-  <testcase name="parsesInlineFormatting" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.001"/>
+  <testcase name="parsesHeadingsParagraphsAndCodeFences" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.003"/>
+  <testcase name="leavesUnclosedMarkersAsPlainText" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.001"/>
+  <testcase name="parsesInlineFormatting" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.0"/>
   <testcase name="parsesListsQuotesAndDividers" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.001"/>
   <testcase name="keepsIncompleteCodeFenceAsCode" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.0"/>
-  <testcase name="rendersEmptyInputAsNoBlocks" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.0"/>
+  <testcase name="rendersEmptyInputAsNoBlocks" classname="com.tumba.ai.ui.markdown.MarkdownParserTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
