@@ -7,7 +7,9 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,11 +33,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.tumba.ai.R
 
 @Composable
 fun TumbaCard(
@@ -59,28 +64,44 @@ fun SectionLabel(text: String, modifier: Modifier = Modifier) {
         text = text.uppercase(),
         style = MaterialTheme.typography.labelSmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
-        letterSpacing = 1.4.sp,
+        letterSpacing = 1.3.sp,
         modifier = modifier,
+    )
+}
+
+/**
+ * The brand mark: the TUMBA "T" with its orbit ring, rendered from the artwork asset.
+ * Used for the logo, the assistant avatar and the empty state.
+ */
+@Composable
+fun TumbaMark(
+    size: Dp = 40.dp,
+    modifier: Modifier = Modifier,
+) {
+    val shape = RoundedCornerShape(size * 0.26f)
+    Image(
+        painter = painterResource(R.drawable.tumba_mark),
+        contentDescription = null,
+        contentScale = ContentScale.Crop,
+        modifier = modifier
+            .size(size)
+            .clip(shape)
+            .border(1.dp, Color.White.copy(alpha = 0.08f), shape),
     )
 }
 
 @Composable
 fun TumbaWordmark(modifier: Modifier = Modifier) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
+        TumbaMark(size = 18.dp)
+        Spacer(Modifier.width(9.dp))
         Text(
             text = "TUMBA",
             style = MaterialTheme.typography.labelLarge.copy(
                 fontWeight = FontWeight.SemiBold,
-                letterSpacing = 4.sp,
+                letterSpacing = 3.2.sp,
             ),
             color = MaterialTheme.colorScheme.onSurface,
-        )
-        Spacer(Modifier.width(6.dp))
-        Box(
-            modifier = Modifier
-                .size(4.dp)
-                .clip(CircleShape)
-                .background(MaterialTheme.colorScheme.primary),
         )
     }
 }
@@ -95,7 +116,7 @@ fun SegmentedControl(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(12.dp))
+            .clip(RoundedCornerShape(14.dp))
             .background(MaterialTheme.colorScheme.surfaceVariant)
             .padding(3.dp),
     ) {
@@ -112,7 +133,7 @@ fun SegmentedControl(
             Box(
                 modifier = Modifier
                     .weight(1f)
-                    .clip(RoundedCornerShape(9.dp))
+                    .clip(RoundedCornerShape(11.dp))
                     .background(background)
                     .clickable { onSelect(index) }
                     .padding(vertical = 9.dp),
@@ -217,7 +238,7 @@ fun EmptyState(
 @Composable
 fun Monogram(size: Dp = 28.dp) {
     Surface(
-        shape = RoundedCornerShape(9.dp),
+        shape = RoundedCornerShape(10.dp),
         color = MaterialTheme.colorScheme.surfaceVariant,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         modifier = Modifier.size(size),

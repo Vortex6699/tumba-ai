@@ -6,6 +6,7 @@ color tumba_background
 color tumba_surface
 drawable ic_launcher_foreground
 drawable ic_launcher_monochrome
+drawable tumba_mark
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals history_messages_count
@@ -56,6 +57,7 @@ string chat_new_chat
 string chat_no_model_action
 string chat_no_model_body
 string chat_no_model_title
+string chat_private_badge
 string chat_regenerate
 string chat_remove_attachment
 string chat_rename_title

@@ -11,20 +11,22 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -37,6 +39,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.AddPhotoAlternate
+import androidx.compose.material.icons.rounded.ArrowOutward
 import androidx.compose.material.icons.rounded.ArrowUpward
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.DeleteOutline
@@ -50,10 +53,8 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -73,8 +74,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
@@ -92,11 +96,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.tumba.ai.R
 import com.tumba.ai.domain.ai.AiError
-import com.tumba.ai.domain.model.Message
 import com.tumba.ai.domain.model.MessageRole
 import com.tumba.ai.domain.model.PendingAttachment
 import com.tumba.ai.ui.components.LoadingDots
-import com.tumba.ai.ui.components.TumbaWordmark
+import com.tumba.ai.ui.components.TumbaMark
+import com.tumba.ai.ui.theme.onBrandGradient
+import com.tumba.ai.ui.theme.tumbaBrandGradient
 import com.tumba.ai.ui.util.aiErrorMessage
 import kotlinx.coroutines.launch
 import java.io.File
@@ -138,10 +143,9 @@ fun ChatScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .statusBarsPadding()
-            .imePadding(),
+            .windowInsetsPadding(WindowInsets.safeDrawing),
     ) {
-        ChatTopBar(
+        ChatHeader(
             title = state.title,
             modelName = state.activeModel?.displayName,
             hasConversation = state.conversationId != null,
@@ -200,7 +204,7 @@ fun ChatScreen(
             }
         }
 
-        ChatInputBar(
+        ChatComposer(
             state = state,
             onInputChange = viewModel::onInputChange,
             onSend = viewModel::onSend,
@@ -292,7 +296,7 @@ fun ChatScreen(
 }
 
 @Composable
-private fun ChatTopBar(
+private fun ChatHeader(
     title: String,
     modelName: String?,
     hasConversation: Boolean,
@@ -304,97 +308,113 @@ private fun ChatTopBar(
     onRename: () -> Unit,
     onDelete: () -> Unit,
 ) {
-    Row(
+    Surface(
+        shape = RoundedCornerShape(22.dp),
+        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.84f),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 2.dp, end = 2.dp, top = 2.dp, bottom = 2.dp),
-        verticalAlignment = Alignment.CenterVertically,
+            .padding(horizontal = 12.dp, vertical = 8.dp),
     ) {
-        IconButton(onClick = onOpenMenu) {
-            Icon(
-                imageVector = Icons.Rounded.Menu,
-                contentDescription = stringResource(R.string.nav_conversations),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.size(22.dp),
-            )
-        }
-
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .clip(RoundedCornerShape(10.dp))
-                .clickable(onClick = onOpenSettings)
-                .padding(horizontal = 6.dp, vertical = 4.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
+        Row(
+            modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(
-                text = title.ifBlank { stringResource(R.string.chat_new_chat) },
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.onSurface,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Text(
-                text = modelName ?: stringResource(R.string.chat_models_chip),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-        }
+            IconButton(onClick = onOpenMenu) {
+                Icon(
+                    imageVector = Icons.Rounded.Menu,
+                    contentDescription = stringResource(R.string.nav_conversations),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(21.dp),
+                )
+            }
 
-        IconButton(onClick = onNewChat) {
-            Icon(
-                imageVector = Icons.Rounded.Edit,
-                contentDescription = stringResource(R.string.chat_new_chat),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.size(20.dp),
-            )
-        }
-
-        if (hasConversation) {
-            Box {
-                IconButton(onClick = { onMenuChange(true) }) {
-                    Icon(
-                        imageVector = Icons.Rounded.MoreVert,
-                        contentDescription = stringResource(R.string.cd_more),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.size(20.dp),
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .clip(RoundedCornerShape(12.dp))
+                    .clickable(onClick = onOpenSettings)
+                    .padding(horizontal = 6.dp, vertical = 3.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = title.ifBlank { stringResource(R.string.chat_new_chat) },
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(5.dp)
+                            .clip(CircleShape)
+                            .background(MaterialTheme.colorScheme.primary),
+                    )
+                    Spacer(Modifier.width(6.dp))
+                    Text(
+                        text = modelName ?: stringResource(R.string.chat_models_chip),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                     )
                 }
-                DropdownMenu(
-                    expanded = showMenu,
-                    onDismissRequest = { onMenuChange(false) },
-                    containerColor = MaterialTheme.colorScheme.surface,
-                ) {
-                    DropdownMenuItem(
-                        text = { Text(stringResource(R.string.action_rename)) },
-                        leadingIcon = { Icon(Icons.Rounded.Edit, contentDescription = null) },
-                        onClick = { onMenuChange(false); onRename() },
-                    )
-                    DropdownMenuItem(
-                        text = {
-                            Text(
-                                text = stringResource(R.string.action_delete),
-                                color = MaterialTheme.colorScheme.error,
-                            )
-                        },
-                        leadingIcon = {
-                            Icon(
-                                Icons.Rounded.DeleteOutline,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.error,
-                            )
-                        },
-                        onClick = { onMenuChange(false); onDelete() },
-                    )
+            }
+
+            IconButton(onClick = onNewChat) {
+                Icon(
+                    imageVector = Icons.Rounded.Edit,
+                    contentDescription = stringResource(R.string.chat_new_chat),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(19.dp),
+                )
+            }
+
+            if (hasConversation) {
+                Box {
+                    IconButton(onClick = { onMenuChange(true) }) {
+                        Icon(
+                            imageVector = Icons.Rounded.MoreVert,
+                            contentDescription = stringResource(R.string.cd_more),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.size(19.dp),
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = showMenu,
+                        onDismissRequest = { onMenuChange(false) },
+                        containerColor = MaterialTheme.colorScheme.surface,
+                        shape = MaterialTheme.shapes.medium,
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.action_rename)) },
+                            leadingIcon = { Icon(Icons.Rounded.Edit, contentDescription = null) },
+                            onClick = { onMenuChange(false); onRename() },
+                        )
+                        DropdownMenuItem(
+                            text = {
+                                Text(
+                                    text = stringResource(R.string.action_delete),
+                                    color = MaterialTheme.colorScheme.error,
+                                )
+                            },
+                            leadingIcon = {
+                                Icon(
+                                    Icons.Rounded.DeleteOutline,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.error,
+                                )
+                            },
+                            onClick = { onMenuChange(false); onDelete() },
+                        )
+                    }
                 }
             }
         }
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ChatEmptyState(
     state: ChatUiState,
@@ -405,11 +425,58 @@ private fun ChatEmptyState(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 24.dp),
+            .padding(horizontal = 22.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Spacer(Modifier.height(52.dp))
-        TumbaWordmark(modifier = Modifier.align(Alignment.CenterHorizontally))
-        Spacer(Modifier.height(22.dp))
+        Spacer(Modifier.height(40.dp))
+
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.size(124.dp),
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.radialGradient(
+                            colors = listOf(
+                                MaterialTheme.colorScheme.primary.copy(alpha = 0.22f),
+                                Color.Transparent,
+                            ),
+                        ),
+                    ),
+            )
+            TumbaMark(size = 62.dp)
+        }
+
+        Spacer(Modifier.height(12.dp))
+
+        Surface(
+            shape = CircleShape,
+            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.10f),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.22f)),
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(horizontal = 11.dp, vertical = 5.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.Lock,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(11.dp),
+                )
+                Spacer(Modifier.width(6.dp))
+                Text(
+                    text = stringResource(R.string.chat_private_badge),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+        }
+
+        Spacer(Modifier.height(18.dp))
+
         Text(
             text = stringResource(R.string.chat_empty_title),
             style = MaterialTheme.typography.headlineMedium,
@@ -444,21 +511,37 @@ private fun ChatEmptyState(
             )
         }
 
-        Spacer(Modifier.height(26.dp))
-        FlowRow(
+        Spacer(Modifier.height(30.dp))
+
+        val suggestions = listOf(
+            stringResource(R.string.chat_suggestion_1),
+            stringResource(R.string.chat_suggestion_2),
+            stringResource(R.string.chat_suggestion_3),
+            stringResource(R.string.chat_suggestion_4),
+        )
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            listOf(
-                stringResource(R.string.chat_suggestion_1),
-                stringResource(R.string.chat_suggestion_2),
-                stringResource(R.string.chat_suggestion_3),
-                stringResource(R.string.chat_suggestion_4),
-            ).forEach { suggestion ->
-                SuggestionChip(text = suggestion, onClick = { onSuggestion(suggestion) })
+            suggestions.chunked(2).forEach { pair ->
+                Row(
+                    modifier = Modifier.height(IntrinsicSize.Min),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    pair.forEach { suggestion ->
+                        SuggestionCard(
+                            text = suggestion,
+                            onClick = { onSuggestion(suggestion) },
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight(),
+                        )
+                    }
+                    if (pair.size == 1) Spacer(Modifier.weight(1f))
+                }
             }
         }
+
         Spacer(Modifier.height(28.dp))
     }
 }
@@ -468,49 +551,58 @@ private fun SetupCard(
     title: String,
     body: String,
     action: String,
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    icon: ImageVector,
     onAction: () -> Unit,
 ) {
     Surface(
-        shape = RoundedCornerShape(18.dp),
+        shape = RoundedCornerShape(22.dp),
         color = MaterialTheme.colorScheme.surface,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(17.dp),
-                )
-                Spacer(Modifier.width(9.dp))
+                Box(
+                    modifier = Modifier
+                        .size(34.dp)
+                        .clip(RoundedCornerShape(11.dp))
+                        .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(17.dp),
+                    )
+                }
+                Spacer(Modifier.width(11.dp))
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
             }
-            Spacer(Modifier.height(7.dp))
+            Spacer(Modifier.height(10.dp))
             Text(
                 text = body,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(13.dp))
             Surface(
-                shape = RoundedCornerShape(10.dp),
-                color = MaterialTheme.colorScheme.surfaceVariant,
+                shape = RoundedCornerShape(12.dp),
+                color = MaterialTheme.colorScheme.primary.copy(alpha = 0.14f),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.24f)),
                 modifier = Modifier
-                    .clip(RoundedCornerShape(10.dp))
+                    .clip(RoundedCornerShape(12.dp))
                     .clickable(onClick = onAction),
             ) {
                 Text(
                     text = action,
                     style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.padding(horizontal = 13.dp, vertical = 8.dp),
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 9.dp),
                 )
             }
         }
@@ -518,21 +610,36 @@ private fun SetupCard(
 }
 
 @Composable
-private fun SuggestionChip(text: String, onClick: () -> Unit) {
+private fun SuggestionCard(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Surface(
-        shape = RoundedCornerShape(20.dp),
+        shape = RoundedCornerShape(18.dp),
         color = MaterialTheme.colorScheme.surface,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
-        modifier = Modifier
-            .clip(RoundedCornerShape(20.dp))
+        modifier = modifier
+            .clip(RoundedCornerShape(18.dp))
             .clickable(onClick = onClick),
     ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.padding(horizontal = 14.dp, vertical = 9.dp),
-        )
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(verticalAlignment = Alignment.Top) {
+                Text(
+                    text = text,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.weight(1f),
+                )
+                Spacer(Modifier.width(8.dp))
+                Icon(
+                    imageVector = Icons.Rounded.ArrowOutward,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(14.dp),
+                )
+            }
+        }
     }
 }
 
@@ -568,8 +675,8 @@ private fun MessageList(
     LazyColumn(
         state = listState,
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 10.dp, bottom = 18.dp),
-        verticalArrangement = Arrangement.spacedBy(26.dp),
+        contentPadding = PaddingValues(start = 18.dp, end = 18.dp, top = 12.dp, bottom = 20.dp),
+        verticalArrangement = Arrangement.spacedBy(24.dp),
     ) {
         itemsIndexed(state.messages, key = { _, message -> message.id }) { _, message ->
             MessageBubble(
@@ -596,11 +703,12 @@ private fun ErrorBanner(
     onDismiss: () -> Unit,
 ) {
     Surface(
-        shape = MaterialTheme.shapes.medium,
-        color = MaterialTheme.colorScheme.surfaceVariant,
+        shape = RoundedCornerShape(18.dp),
+        color = MaterialTheme.colorScheme.errorContainer,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.error.copy(alpha = 0.28f)),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
+            .padding(horizontal = 14.dp, vertical = 4.dp),
     ) {
         Row(modifier = Modifier.padding(start = 14.dp, end = 4.dp, top = 10.dp, bottom = 10.dp)) {
             Icon(
@@ -622,7 +730,7 @@ private fun ErrorBanner(
                     Text(
                         text = stringResource(R.string.action_retry),
                         style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onSurface,
+                        color = MaterialTheme.colorScheme.error,
                         modifier = Modifier
                             .padding(top = 6.dp)
                             .clip(RoundedCornerShape(6.dp))
@@ -644,7 +752,7 @@ private fun ErrorBanner(
 }
 
 @Composable
-private fun ChatInputBar(
+private fun ChatComposer(
     state: ChatUiState,
     onInputChange: (String) -> Unit,
     onSend: () -> Unit,
@@ -655,16 +763,20 @@ private fun ChatInputBar(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 14.dp, end = 14.dp, bottom = 8.dp, top = 4.dp),
+            .padding(start = 12.dp, end = 12.dp, bottom = 8.dp, top = 4.dp),
     ) {
         Surface(
-            shape = RoundedCornerShape(24.dp),
+            shape = RoundedCornerShape(26.dp),
             color = MaterialTheme.colorScheme.surface,
-            border = androidx.compose.foundation.BorderStroke(
-                1.dp,
-                MaterialTheme.colorScheme.outlineVariant,
-            ),
-            modifier = Modifier.fillMaxWidth(),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+            modifier = Modifier
+                .fillMaxWidth()
+                .shadow(
+                    elevation = 18.dp,
+                    shape = RoundedCornerShape(26.dp),
+                    ambientColor = Color.Black.copy(alpha = 0.35f),
+                    spotColor = Color.Black.copy(alpha = 0.45f),
+                ),
         ) {
             Column {
                 if (state.attachments.isNotEmpty()) {
@@ -675,14 +787,14 @@ private fun ChatInputBar(
                 }
                 Row(
                     verticalAlignment = Alignment.Bottom,
-                    modifier = Modifier.padding(start = 4.dp, end = 6.dp),
+                    modifier = Modifier.padding(start = 6.dp, end = 8.dp),
                 ) {
                     IconButton(onClick = onAttach) {
                         Icon(
                             imageVector = Icons.Rounded.AddPhotoAlternate,
                             contentDescription = stringResource(R.string.chat_attach),
                             tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.size(22.dp),
+                            modifier = Modifier.size(21.dp),
                         )
                     }
 
@@ -716,41 +828,12 @@ private fun ChatInputBar(
                         )
                     }
 
-                    FilledIconButton(
-                        onClick = if (state.isStreaming) onStop else onSend,
-                        enabled = state.isStreaming || state.canSend,
-                        modifier = Modifier
-                            .padding(bottom = 8.dp)
-                            .size(38.dp),
-                        colors = IconButtonDefaults.filledIconButtonColors(
-                            containerColor = if (state.isStreaming) {
-                                MaterialTheme.colorScheme.surfaceVariant
-                            } else {
-                                MaterialTheme.colorScheme.primary
-                            },
-                            contentColor = if (state.isStreaming) {
-                                MaterialTheme.colorScheme.onSurface
-                            } else {
-                                MaterialTheme.colorScheme.onPrimary
-                            },
-                            disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant,
-                            disabledContentColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                        ),
-                    ) {
-                        if (state.isStreaming) {
-                            Icon(
-                                imageVector = Icons.Rounded.Stop,
-                                contentDescription = stringResource(R.string.chat_stop),
-                                modifier = Modifier.size(18.dp),
-                            )
-                        } else {
-                            Icon(
-                                imageVector = Icons.Rounded.ArrowUpward,
-                                contentDescription = stringResource(R.string.chat_send),
-                                modifier = Modifier.size(18.dp),
-                            )
-                        }
-                    }
+                    SendButton(
+                        isStreaming = state.isStreaming,
+                        canSend = state.canSend,
+                        onSend = onSend,
+                        onStop = onStop,
+                    )
                 }
             }
         }
@@ -758,7 +841,7 @@ private fun ChatInputBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 7.dp),
+                .padding(top = 8.dp),
             horizontalArrangement = Arrangement.Center,
         ) {
             if (state.isStreaming) {
@@ -767,9 +850,48 @@ private fun ChatInputBar(
             Text(
                 text = stringResource(R.string.chat_disclaimer),
                 style = MaterialTheme.typography.labelSmall.copy(letterSpacing = 0.2.sp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.75f),
             )
         }
+    }
+}
+
+@Composable
+private fun SendButton(
+    isStreaming: Boolean,
+    canSend: Boolean,
+    onSend: () -> Unit,
+    onStop: () -> Unit,
+) {
+    val enabled = isStreaming || canSend
+    val background: Brush = when {
+        isStreaming -> SolidColor(MaterialTheme.colorScheme.surfaceVariant)
+        enabled -> tumbaBrandGradient()
+        else -> SolidColor(MaterialTheme.colorScheme.surfaceVariant)
+    }
+    val tint = when {
+        isStreaming -> MaterialTheme.colorScheme.onSurface
+        enabled -> onBrandGradient()
+        else -> MaterialTheme.colorScheme.onSurfaceVariant
+    }
+
+    Box(
+        modifier = Modifier
+            .padding(bottom = 8.dp)
+            .size(44.dp)
+            .clip(CircleShape)
+            .background(background)
+            .clickable(enabled = enabled, onClick = if (isStreaming) onStop else onSend),
+        contentAlignment = Alignment.Center,
+    ) {
+        Icon(
+            imageVector = if (isStreaming) Icons.Rounded.Stop else Icons.Rounded.ArrowUpward,
+            contentDescription = stringResource(
+                if (isStreaming) R.string.chat_stop else R.string.chat_send,
+            ),
+            tint = tint,
+            modifier = Modifier.size(19.dp),
+        )
     }
 }
 
@@ -787,8 +909,9 @@ private fun AttachmentPreviewRow(
         attachments.forEach { attachment ->
             Box {
                 Surface(
-                    shape = RoundedCornerShape(10.dp),
+                    shape = RoundedCornerShape(12.dp),
                     color = MaterialTheme.colorScheme.surfaceVariant,
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
                     modifier = Modifier.size(58.dp),
                 ) {
                     AsyncImage(

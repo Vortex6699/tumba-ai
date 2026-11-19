@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tumba.ai.data.ai.LocalModelCatalogTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-13T11:25:31" hostname="DESKTOP-F39TBTS" time="0.046">
+<testsuite name="com.tumba.ai.data.ai.LocalModelCatalogTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-19T19:02:45" hostname="DESKTOP-F39TBTS" time="0.035">
   <properties/>
-  <testcase name="lookup by id" classname="com.tumba.ai.data.ai.LocalModelCatalogTest" time="0.031"/>
-  <testcase name="download size is plausible" classname="com.tumba.ai.data.ai.LocalModelCatalogTest" time="0.013"/>
+  <testcase name="lookup by id" classname="com.tumba.ai.data.ai.LocalModelCatalogTest" time="0.025"/>
+  <testcase name="download size is plausible" classname="com.tumba.ai.data.ai.LocalModelCatalogTest" time="0.008"/>
   <testcase name="entries are https and point at a gguf file" classname="com.tumba.ai.data.ai.LocalModelCatalogTest" time="0.0"/>
-  <testcase name="catalogue is not empty" classname="com.tumba.ai.data.ai.LocalModelCatalogTest" time="0.001"/>
+  <testcase name="catalogue is not empty" classname="com.tumba.ai.data.ai.LocalModelCatalogTest" time="0.0"/>
   <testcase name="ids and urls are unique" classname="com.tumba.ai.data.ai.LocalModelCatalogTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

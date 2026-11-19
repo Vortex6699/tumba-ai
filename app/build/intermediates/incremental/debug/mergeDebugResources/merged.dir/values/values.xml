@@ -40,7 +40,7 @@
     <color name="foreground_material_light">@android:color/black</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
-    <color name="ic_launcher_background">#101010</color>
+    <color name="ic_launcher_background">#060607</color>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -371,6 +371,7 @@
     <string name="chat_no_model_action">Open settings</string>
     <string name="chat_no_model_body">Pick a cloud or local model in Settings to start a conversation.</string>
     <string name="chat_no_model_title">Choose a model</string>
+    <string name="chat_private_badge">Private by design</string>
     <string name="chat_regenerate">Regenerate answer</string>
     <string name="chat_remove_attachment">Remove image</string>
     <string name="chat_rename_title">Rename conversation</string>

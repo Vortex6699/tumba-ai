@@ -2,6 +2,9 @@ package com.tumba.ai.ui.navigation
 
 import androidx.activity.compose.BackHandler
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DrawerValue
@@ -16,7 +19,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -62,6 +64,18 @@ fun TumbaApp(settingsViewModel: SettingsViewModel) {
         scope.launch { drawerState.close() }
     }
 
+    /**
+     * Replaces the chat destination instead of reusing it. Reusing the same route with
+     * `launchSingleTop` keeps the existing NavBackStackEntry (and therefore the old
+     * ChatViewModel), which is why conversations picked from History previously did not open.
+     */
+    fun openChat(conversationId: Long?) {
+        navController.navigate(TumbaRoutes.chat(conversationId)) {
+            popUpTo(TumbaRoutes.CHAT_PATTERN) { inclusive = true }
+            launchSingleTop = true
+        }
+    }
+
     BackHandler(enabled = drawerState.isOpen) {
         scope.launch { drawerState.close() }
     }
@@ -69,20 +83,17 @@ fun TumbaApp(settingsViewModel: SettingsViewModel) {
     ModalNavigationDrawer(
         drawerState = drawerState,
         gesturesEnabled = currentRoute == TumbaRoutes.CHAT_PATTERN,
+        scrimColor = MaterialTheme.colorScheme.scrim.copy(alpha = 0.55f),
         drawerContent = {
             ConversationDrawer(
                 currentConversationId = currentConversationId,
                 onNewChat = {
                     closeDrawer()
-                    navController.navigate(TumbaRoutes.chat()) {
-                        launchSingleTop = true
-                    }
+                    openChat(null)
                 },
                 onOpenConversation = { conversationId ->
                     closeDrawer()
-                    navController.navigate(TumbaRoutes.chat(conversationId)) {
-                        launchSingleTop = true
-                    }
+                    openChat(conversationId)
                 },
                 onOpenSettings = {
                     closeDrawer()
@@ -93,12 +104,7 @@ fun TumbaApp(settingsViewModel: SettingsViewModel) {
                 onConversationDeleted = { deletedId ->
                     if (deletedId == currentConversationId) {
                         closeDrawer()
-                        navController.navigate(TumbaRoutes.chat()) {
-                            popUpTo(navController.graph.findStartDestination().id) {
-                                inclusive = true
-                            }
-                            launchSingleTop = true
-                        }
+                        openChat(null)
                     }
                 },
                 onClose = { closeDrawer() },
@@ -113,6 +119,10 @@ fun TumbaApp(settingsViewModel: SettingsViewModel) {
                 navController = navController,
                 startDestination = TumbaRoutes.CHAT_PATTERN,
                 modifier = Modifier.padding(innerPadding),
+                enterTransition = { fadeIn(animationSpec = tween(220)) },
+                exitTransition = { fadeOut(animationSpec = tween(140)) },
+                popEnterTransition = { fadeIn(animationSpec = tween(220)) },
+                popExitTransition = { fadeOut(animationSpec = tween(140)) },
             ) {
                 composable(
                     route = TumbaRoutes.CHAT_PATTERN,
@@ -130,17 +140,8 @@ fun TumbaApp(settingsViewModel: SettingsViewModel) {
                                 launchSingleTop = true
                             }
                         },
-                        onNewChat = {
-                            navController.navigate(TumbaRoutes.chat()) { launchSingleTop = true }
-                        },
-                        onConversationDeleted = {
-                            navController.navigate(TumbaRoutes.chat()) {
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    inclusive = true
-                                }
-                                launchSingleTop = true
-                            }
-                        },
+                        onNewChat = { openChat(null) },
+                        onConversationDeleted = { openChat(null) },
                     )
                 }
 

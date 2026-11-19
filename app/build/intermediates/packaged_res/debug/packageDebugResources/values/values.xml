@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-    <color name="ic_launcher_background">#101010</color>
+    <color name="ic_launcher_background">#060607</color>
     <color name="tumba_accent">#3A3A3A</color>
     <color name="tumba_background">#FAFAF8</color>
     <color name="tumba_surface">#FFFFFF</color>
@@ -55,6 +55,7 @@
     <string name="chat_no_model_action">Open settings</string>
     <string name="chat_no_model_body">Pick a cloud or local model in Settings to start a conversation.</string>
     <string name="chat_no_model_title">Choose a model</string>
+    <string name="chat_private_badge">Private by design</string>
     <string name="chat_regenerate">Regenerate answer</string>
     <string name="chat_remove_attachment">Remove image</string>
     <string name="chat_rename_title">Rename conversation</string>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tumba.ai.data.ai.ModelCatalogTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-13T11:25:31" hostname="DESKTOP-F39TBTS" time="0.016">
+<testsuite name="com.tumba.ai.data.ai.ModelCatalogTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-19T19:02:45" hostname="DESKTOP-F39TBTS" time="0.013">
   <properties/>
   <testcase name="retiredGeminiModelsNormalizeToTheLatestAlias" classname="com.tumba.ai.data.ai.ModelCatalogTest" time="0.01"/>
-  <testcase name="localModelsAreMarkedLocalAndTextOnly" classname="com.tumba.ai.data.ai.ModelCatalogTest" time="0.004"/>
+  <testcase name="localModelsAreMarkedLocalAndTextOnly" classname="com.tumba.ai.data.ai.ModelCatalogTest" time="0.001"/>
   <testcase name="defaultModelUsesTheStableLatestAlias" classname="com.tumba.ai.data.ai.ModelCatalogTest" time="0.0"/>
-  <testcase name="everyModelHasUniqueIdentity" classname="com.tumba.ai.data.ai.ModelCatalogTest" time="0.002"/>
+  <testcase name="everyModelHasUniqueIdentity" classname="com.tumba.ai.data.ai.ModelCatalogTest" time="0.001"/>
   <testcase name="cloudCatalogHasPositiveContextWindows" classname="com.tumba.ai.data.ai.ModelCatalogTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

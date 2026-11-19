@@ -70,6 +70,7 @@
     <string name="chat_actions">Message actions</string>
     <string name="chat_fullscreen_image">View image</string>
     <string name="chat_disclaimer">TUMBA can make mistakes. Verify what matters.</string>
+    <string name="chat_private_badge">Private by design</string>
 
     <!-- Errors -->
     <string name="error_missing_key">Add an API key for %1$s in Settings to start chatting.</string>

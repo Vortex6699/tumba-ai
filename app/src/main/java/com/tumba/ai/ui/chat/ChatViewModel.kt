@@ -36,8 +36,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -70,6 +72,7 @@ class ChatViewModel @Inject constructor(
     private var generationJob: kotlinx.coroutines.Job? = null
 
     init {
+        observeConversationArgument()
         observeMessages()
         observeConversation()
         observeSettings()
@@ -251,6 +254,32 @@ class ChatViewModel @Inject constructor(
 
     fun onNoticeShown() {
         _state.update { it.copy(noticeRes = null) }
+    }
+
+    private fun observeConversationArgument() {
+        viewModelScope.launch {
+            savedStateHandle
+                .getStateFlow(ARG_CONVERSATION_ID, initialConversationId ?: -1L)
+                .map { id -> id.takeIf { it > 0L } }
+                .distinctUntilChanged()
+                .collect { conversationId ->
+                    if (conversationId == conversationIdFlow.value) return@collect
+                    generationJob?.cancel()
+                    conversationIdFlow.value = conversationId
+                    _state.update {
+                        it.copy(
+                            conversationId = conversationId,
+                            title = "",
+                            messages = emptyList(),
+                            isLoading = conversationId != null,
+                            isStreaming = false,
+                            streamingMessageId = null,
+                            streamingText = "",
+                            error = null,
+                        )
+                    }
+                }
+        }
     }
 
     private fun observeMessages() {

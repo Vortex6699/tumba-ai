@@ -1,38 +1,50 @@
 [
     {
-        "merged": "com.tumba.ai.app-debug-68:/xml_backup_rules.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/xml/backup_rules.xml"
+        "merged": "com.tumba.ai.app-debug-68:/drawable-nodpi_tumba_mark.png.flat",
+        "source": "com.tumba.ai.app-main-70:/drawable-nodpi/tumba_mark.png"
     },
     {
-        "merged": "com.tumba.ai.app-debug-68:/xml_data_extraction_rules.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/xml/data_extraction_rules.xml"
+        "merged": "com.tumba.ai.app-debug-68:/drawable-xxxhdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.tumba.ai.app-main-70:/drawable-xxxhdpi/ic_launcher_monochrome.png"
     },
     {
-        "merged": "com.tumba.ai.app-debug-68:/xml_locales_config.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/xml/locales_config.xml"
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\mipmap-anydpi-v33_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\mipmap-anydpi-v33\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.tumba.ai.app-debug-68:/drawable_ic_launcher_monochrome.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/drawable/ic_launcher_monochrome.xml"
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.tumba.ai.app-debug-68:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\mipmap-anydpi\\ic_launcher.xml"
     },
     {
-        "merged": "com.tumba.ai.app-debug-68:/mipmap-anydpi_ic_launcher_round.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/mipmap-anydpi/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\xml_locales_config.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\xml\\locales_config.xml"
     },
     {
-        "merged": "com.tumba.ai.app-debug-68:/mipmap-anydpi_ic_launcher.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/mipmap-anydpi/ic_launcher.xml"
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\mipmap-anydpi-v33\\ic_launcher.xml"
     },
     {
-        "merged": "com.tumba.ai.app-debug-68:/mipmap-anydpi-v33_ic_launcher_round.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/mipmap-anydpi-v33/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\drawable_ic_launcher_monochrome.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\drawable\\ic_launcher_monochrome.xml"
     },
     {
-        "merged": "com.tumba.ai.app-debug-68:/mipmap-anydpi-v33_ic_launcher.xml.flat",
-        "source": "com.tumba.ai.app-main-70:/mipmap-anydpi-v33/ic_launcher.xml"
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\mipmap-anydpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.tumba.ai.app-debug-68:/drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.tumba.ai.app-main-70:/drawable-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-debug-68:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Acer\\.gradle\\daemon\\8.11.1\\com.tumba.ai.app-main-70:\\drawable\\ic_launcher_foreground.xml"
     }
 ]

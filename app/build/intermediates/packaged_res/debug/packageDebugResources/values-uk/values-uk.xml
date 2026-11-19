@@ -53,6 +53,7 @@
     <string name="chat_no_model_action">До налаштувань</string>
     <string name="chat_no_model_body">Виберіть хмарну або локальну модель у налаштуваннях, щоб почати розмову.</string>
     <string name="chat_no_model_title">Оберіть модель</string>
+    <string name="chat_private_badge">Приватно за замовчуванням</string>
     <string name="chat_regenerate">Згенерувати заново</string>
     <string name="chat_remove_attachment">Прибрати зображення</string>
     <string name="chat_rename_title">Перейменувати розмову</string>

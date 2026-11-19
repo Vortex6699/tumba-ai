@@ -434,23 +434,23 @@ public final class DaggerTumbaApplication_HiltComponents_SingletonC {
     private static final class LazyClassKeyProvider {
       static String com_tumba_ai_ui_history_HistoryViewModel = "com.tumba.ai.ui.history.HistoryViewModel";
 
-      static String com_tumba_ai_ui_settings_SettingsViewModel = "com.tumba.ai.ui.settings.SettingsViewModel";
-
       static String com_tumba_ai_ui_chat_ChatViewModel = "com.tumba.ai.ui.chat.ChatViewModel";
 
       static String com_tumba_ai_ui_models_ModelsViewModel = "com.tumba.ai.ui.models.ModelsViewModel";
 
-      @KeepFieldType
-      HistoryViewModel com_tumba_ai_ui_history_HistoryViewModel2;
+      static String com_tumba_ai_ui_settings_SettingsViewModel = "com.tumba.ai.ui.settings.SettingsViewModel";
 
       @KeepFieldType
-      SettingsViewModel com_tumba_ai_ui_settings_SettingsViewModel2;
+      HistoryViewModel com_tumba_ai_ui_history_HistoryViewModel2;
 
       @KeepFieldType
       ChatViewModel com_tumba_ai_ui_chat_ChatViewModel2;
 
       @KeepFieldType
       ModelsViewModel com_tumba_ai_ui_models_ModelsViewModel2;
+
+      @KeepFieldType
+      SettingsViewModel com_tumba_ai_ui_settings_SettingsViewModel2;
     }
   }
 
@@ -502,22 +502,22 @@ public final class DaggerTumbaApplication_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
+      static String com_tumba_ai_ui_history_HistoryViewModel = "com.tumba.ai.ui.history.HistoryViewModel";
+
       static String com_tumba_ai_ui_settings_SettingsViewModel = "com.tumba.ai.ui.settings.SettingsViewModel";
 
       static String com_tumba_ai_ui_chat_ChatViewModel = "com.tumba.ai.ui.chat.ChatViewModel";
 
-      static String com_tumba_ai_ui_history_HistoryViewModel = "com.tumba.ai.ui.history.HistoryViewModel";
-
       static String com_tumba_ai_ui_models_ModelsViewModel = "com.tumba.ai.ui.models.ModelsViewModel";
+
+      @KeepFieldType
+      HistoryViewModel com_tumba_ai_ui_history_HistoryViewModel2;
 
       @KeepFieldType
       SettingsViewModel com_tumba_ai_ui_settings_SettingsViewModel2;
 
       @KeepFieldType
       ChatViewModel com_tumba_ai_ui_chat_ChatViewModel2;
-
-      @KeepFieldType
-      HistoryViewModel com_tumba_ai_ui_history_HistoryViewModel2;
 
       @KeepFieldType
       ModelsViewModel com_tumba_ai_ui_models_ModelsViewModel2;
